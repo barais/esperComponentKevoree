@@ -1,0 +1,15 @@
+//sample of KevScript configuration
+repo "http://repo1.maven.org/maven2"
+add node0 : JavaNode/5.2.9
+add node0.comp144 : EsperTickerTest
+add node0.comp390 : ConsolePrinter/5.2.9
+add node0.cmp1 : esper.KevoreeComponent/1.0.0-SNAPSHOT
+add sync : WSGroup/5.2.9
+add chan373, chan988 : AsyncBroadcast/5.2.9
+
+attach node0 sync
+
+bind node0.cmp1.input1 chan988
+bind node0.comp144.out chan988
+bind node0.cmp1.out chan373
+bind node0.comp390.input chan373
